@@ -25,8 +25,16 @@ opt.undofile = true
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('i', 'jk', '<Esc>', { silent = true })
--- vim.keymap.set('t', 'jk', '<C-\\><C-N>', { silent = true })
--- vim.keymap.set('t', '<Esc>', '<C-\\><C-N>', { silent = true })
+
+vim.keymap.set('t', '<Esc>', function()
+    local current_bufnr = vim.fn.bufnr('%')
+    local filetype = vim.api.nvim_buf_get_option(current_bufnr, 'filetype')
+    if filetype and filetype ~= 'lazygit' then
+        return "<C-\\><C-N>"
+    end
+end
+
+, { silent = true, expr = true })
 
 vim.keymap.set('n', '<M-a>', '<C-^>', { silent = true })
 vim.keymap.set('n', '[b', ':bprev<CR>', { silent = true })
