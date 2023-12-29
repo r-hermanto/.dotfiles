@@ -126,3 +126,6 @@ function cd {
 }
 
 auto_pipenv_shell
+
+# bindkey "^f" 'source tmux_sessionizer'
+bindkey -s ^f "tmux_sessionizer\n"
