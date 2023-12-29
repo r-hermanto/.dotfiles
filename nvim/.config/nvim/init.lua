@@ -29,9 +29,7 @@ vim.keymap.set('i', 'jk', '<Esc>', { silent = true })
 vim.keymap.set('t', '<Esc>', function()
     local current_bufnr = vim.fn.bufnr('%')
     local filetype = vim.api.nvim_buf_get_option(current_bufnr, 'filetype')
-    if filetype and filetype ~= 'lazygit' then
-        return "<C-\\><C-N>"
-    end
+    return (filetype and filetype ~= 'lazygit') and '<C-\\><C-N>' or '<Esc>'
 end
 
 , { silent = true, expr = true })
