@@ -128,3 +128,5 @@ function cd {
 auto_pipenv_shell
 
 bindkey -s ^f "tmux_sessionizer\n"
+
+test -z "$TMUX" && (tmux a || tmux new-session -s default)
