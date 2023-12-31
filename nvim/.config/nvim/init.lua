@@ -30,9 +30,7 @@ vim.keymap.set('t', '<Esc>', function()
     local current_bufnr = vim.fn.bufnr('%')
     local filetype = vim.api.nvim_buf_get_option(current_bufnr, 'filetype')
     return (filetype and filetype ~= 'lazygit') and '<C-\\><C-N>' or '<Esc>'
-end
-
-, { silent = true, expr = true })
+end, { silent = true, expr = true })
 
 vim.keymap.set('n', '<M-a>', '<C-^>', { silent = true })
 vim.keymap.set('n', '[b', ':bprev<CR>', { silent = true })
