@@ -84,7 +84,8 @@ require('lazy').setup({
         'hrsh7th/nvim-cmp',
         dependencies = {
             'L3MON4D3/LuaSnip',
-            'hrsh7th/cmp-nvim-lsp'
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-nvim-lsp-signature-help'
         }
     },
     {
@@ -146,7 +147,8 @@ cmp.setup({
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'luasnip' }
+        { name = 'luasnip' },
+        { name = 'nvim_lsp_signature_help' }
     }
 })
 
@@ -196,6 +198,7 @@ vim.keymap.set('n', '<leader>sh', telescope_builtin.help_tags, {})
 local servers = {
     gopls = {},
     pyright = {},
+    ruff_lsp = {},
     lua_ls = {
         Lua = {
             diagnostics = { globals = { 'vim' } },
