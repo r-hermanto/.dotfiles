@@ -97,8 +97,17 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# go
 export GOPATH="$XDG_DATA_HOME/go"
 
+# python
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+
+# zsh
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
+mkdir -p "$(dirname $HISTFILE)"
+
+# nvim
 export EDITOR='nvim'
 
 # Compilation flags
