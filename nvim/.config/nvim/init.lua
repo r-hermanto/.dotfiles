@@ -254,7 +254,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 require('nvim-treesitter.configs').setup({
     ensure_installed = { 'lua', 'go', 'python' },
-    highlist = {
+    highlight = {
         enable = true,
     }
 })
