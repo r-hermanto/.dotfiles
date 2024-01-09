@@ -161,7 +161,7 @@ require('telescope').setup({
                 ['q'] = require('telescope.actions').close,
             }
         },
-        file_ignore_patterns = { ".git/" },
+        file_ignore_patterns = { "^%.git/" },
         vimgrep_arguments = {
             "rg",
             "--color=never",

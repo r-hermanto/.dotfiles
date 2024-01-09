@@ -1,0 +1,32 @@
+[user]
+	email = 68783679+r-hermanto@users.noreply.github.com
+	name = Rudi Hermanto
+[delta]
+    features = decorations
+[interactive]
+    diffFilter = delta --color-only
+[core]
+	editor = nvim
+    pager = delta
+[merge]
+	tool = nvimdiff2
+[mergetool]
+	keepBackup = false
+    prompt = false
+[diff]
+	tool = nvimdiff
+    colorMoved = default
+[difftool]
+	prompt = false
+
+[delta "decorations"]
+    dark = true
+    side-by-side = true
+    hunk-header-style = omit
+    line-numbers = true
+    line-numbers-left-style = red
+    line-numbers-right-style = green
+    line-numbers-minus-style = red italic
+    line-numbers-plus-style = green italic
+    line-numbers-left-format = " {nm:>3} │"
+    line-numbers-right-format = " {np:>3} │"
