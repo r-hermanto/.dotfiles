@@ -36,8 +36,12 @@ vim.keymap.set('n', '<M-a>', '<C-^>', { silent = true })
 vim.keymap.set('n', '[b', ':bprev<CR>', { silent = true })
 vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true })
 
-vim.keymap.set('n', '[q', ':cprev<CR>', { silent = true })
-vim.keymap.set('n', ']q', ':cnext<CR>', { silent = true })
+vim.keymap.set('n', '[c', ':cprev<CR>', { silent = true })
+vim.keymap.set('n', ']c', ':cnext<CR>', { silent = true })
+
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
 vim.keymap.set('n', '<M-h>', '<C-w>h', { silent = true })
 vim.keymap.set('n', '<M-l>', '<C-w>l', { silent = true })
@@ -123,7 +127,8 @@ require('lazy').setup({
             'leoluz/nvim-dap-go',
         }
     },
-    { 'numToStr/Navigator.nvim' }
+    { 'numToStr/Navigator.nvim' },
+    { "sindrets/diffview.nvim" }
 })
 
 vim.cmd.colorscheme('tokyonight')
@@ -270,6 +275,9 @@ require('nvim-treesitter.configs').setup({
 require('Comment').setup()
 
 require('gitsigns').setup({
+    current_line_blame_opts = {
+        delay = 0
+    },
     on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
         local opts = { buffer = bufnr }
