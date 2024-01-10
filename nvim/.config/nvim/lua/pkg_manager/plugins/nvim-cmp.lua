@@ -5,6 +5,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lsp-signature-help"
     },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
         local cmp = require("cmp")
         cmp.setup({
