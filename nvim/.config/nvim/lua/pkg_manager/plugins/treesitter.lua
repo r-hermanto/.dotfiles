@@ -4,7 +4,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
         require("nvim-treesitter.configs").setup({
-            ensure_installed = { "lua", "go", "python", "vim", "vimdoc", "query" },
+            ensure_installed = { "lua", "go", "python", "vim", "vimdoc", "query", "bash" },
             highlight = { enable = true },
             indent = { enable = true },
             incremental_selection = {
