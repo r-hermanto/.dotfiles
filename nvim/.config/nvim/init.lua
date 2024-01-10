@@ -1,41 +1,15 @@
 require("core")
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set('i', 'jk', '<Esc>', { silent = true })
-
 vim.keymap.set('n', '<C-f>', '<CMD>silent !tmux neww tmux_sessionizer<CR>')
 vim.keymap.set('t', '<Esc>', function()
     local current_bufnr = vim.fn.bufnr('%')
     local filetype = vim.api.nvim_buf_get_option(current_bufnr, 'filetype')
     return (filetype and filetype ~= 'lazygit') and '<C-\\><C-N>' or '<Esc>'
 end, { silent = true, expr = true })
-vim.keymap.set('n', '<M-a>', '<C-^>', { silent = true })
-vim.keymap.set('n', '[b', ':bprev<CR>', { silent = true })
-vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true })
-
-vim.keymap.set('n', '[c', ':cprev<CR>', { silent = true })
-vim.keymap.set('n', ']c', ':cnext<CR>', { silent = true })
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-
-vim.keymap.set('n', '<M-h>', '<C-w>h', { silent = true })
-vim.keymap.set('n', '<M-l>', '<C-w>l', { silent = true })
-vim.keymap.set('n', '<M-j>', '<C-w>j', { silent = true })
-vim.keymap.set('n', '<M-k>', '<C-w>k', { silent = true })
-
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank({ timeout = 100 })
-    end,
-    group = highlight_group,
-    pattern = '*',
-})
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
