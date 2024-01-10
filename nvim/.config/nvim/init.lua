@@ -108,8 +108,6 @@ require('nvim-treesitter.configs').setup({
     }
 })
 
-require('Comment').setup()
-
 require('gitsigns').setup({
     current_line_blame_opts = {
         delay = 0
@@ -121,7 +119,6 @@ require('gitsigns').setup({
     end
 })
 
-require('ibl').setup()
 
 require('dapui').setup()
 

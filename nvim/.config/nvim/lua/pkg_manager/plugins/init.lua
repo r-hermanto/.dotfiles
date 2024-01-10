@@ -1,5 +1,5 @@
 return {
-    { "numToStr/Comment.nvim" },
+    { "numToStr/Comment.nvim",  config = true },
     { "lewis6991/gitsigns.nvim" },
     { "sindrets/diffview.nvim" },
     {
@@ -8,7 +8,7 @@ return {
             "nvim-lua/plenary.nvim",
         },
     },
-    { "lukas-reineke/indent-blankline.nvim" },
+    { "lukas-reineke/indent-blankline.nvim",    main = "ibl",       config = true },
     { "nvim-treesitter/nvim-treesitter",        build = ":TSUpdate" },
     { "nvim-treesitter/nvim-treesitter-context" },
     {
