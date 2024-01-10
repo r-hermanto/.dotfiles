@@ -1,4 +1,5 @@
 require("core")
+require("pkg_manager")
 
 vim.keymap.set('n', '<C-f>', '<CMD>silent !tmux neww tmux_sessionizer<CR>')
 vim.keymap.set('t', '<Esc>', function()
@@ -10,83 +11,6 @@ end, { silent = true, expr = true })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system {
-        'git',
-        'clone',
-        '--filter=blob:none',
-        'https://github.com/folke/lazy.nvim.git',
-        '--branch=stable',
-        lazypath,
-    }
-end
-vim.opt.rtp:prepend(lazypath)
-
-require('lazy').setup({
-    {
-        'folke/tokyonight.nvim',
-        lazy = false,
-        priority = 1000,
-        opts = { style = 'night' }
-    },
-    {
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            { 'williamboman/mason.nvim', config = true },
-            'williamboman/mason-lspconfig.nvim',
-        }
-    },
-    {
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            'L3MON4D3/LuaSnip',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-nvim-lsp-signature-help'
-        }
-    },
-    {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.2',
-        dependencies = {
-            'nvim-lua/plenary.nvim'
-        }
-    },
-    {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make',
-        cond = function()
-            return vim.fn.executable('make') == 1
-        end
-    },
-    {
-        { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-    },
-    { 'nvim-treesitter/nvim-treesitter-context' },
-    { 'numToStr/Comment.nvim' },
-    { 'lewis6991/gitsigns.nvim' },
-    {
-        'kdheepak/lazygit.nvim',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-        }
-    },
-    { 'lukas-reineke/indent-blankline.nvim' },
-    {
-        'mfussenegger/nvim-dap',
-        dependencies = {
-            'rcarriga/nvim-dap-ui',
-            'williamboman/mason.nvim',
-            'leoluz/nvim-dap-go',
-        }
-    },
-    { 'numToStr/Navigator.nvim' },
-    { "sindrets/diffview.nvim" }
-})
-
-vim.cmd.colorscheme('tokyonight')
-
 
 local cmp = require('cmp')
 cmp.setup({
