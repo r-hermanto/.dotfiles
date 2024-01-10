@@ -57,10 +57,3 @@ require('dap-go').setup()
 dap.listeners.after.event_initialized['dapui_config'] = dapui.open
 dap.listeners.before.event_terminated['dapui_config'] = dapui.close
 dap.listeners.before.event_exited['dapui_config'] = dapui.close
-
-require('Navigator').setup()
-vim.keymap.set({ 'n', 't' }, '<M-h>', '<CMD>NavigatorLeft<CR>')
-vim.keymap.set({ 'n', 't' }, '<M-l>', '<CMD>NavigatorRight<CR>')
-vim.keymap.set({ 'n', 't' }, '<M-k>', '<CMD>NavigatorUp<CR>')
-vim.keymap.set({ 'n', 't' }, '<M-j>', '<CMD>NavigatorDown<CR>')
-vim.keymap.set({ 'n', 't' }, '<M-p>', '<CMD>NavigatorPrevious<CR>')

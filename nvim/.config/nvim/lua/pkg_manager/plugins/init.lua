@@ -12,5 +12,4 @@ return {
             "leoluz/nvim-dap-go",
         }
     },
-    { "numToStr/Navigator.nvim" },
 }
