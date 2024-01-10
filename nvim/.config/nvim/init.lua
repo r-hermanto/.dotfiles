@@ -1,12 +1,6 @@
 require("core")
 require("pkg_manager")
 
-vim.keymap.set('t', '<Esc>', function()
-    local current_bufnr = vim.fn.bufnr('%')
-    local filetype = vim.api.nvim_buf_get_option(current_bufnr, 'filetype')
-    return (filetype and filetype ~= 'lazygit') and '<C-\\><C-N>' or '<Esc>'
-end, { silent = true, expr = true })
-
 require('nvim-treesitter.configs').setup({
     ensure_installed = { 'lua', 'go', 'python' },
     highlight = { enable = true },
@@ -21,18 +15,6 @@ require('nvim-treesitter.configs').setup({
         }
     }
 })
-
-require('gitsigns').setup({
-    current_line_blame_opts = {
-        delay = 0
-    },
-    on_attach = function(bufnr)
-        local gs = package.loaded.gitsigns
-        local opts = { buffer = bufnr }
-        vim.keymap.set('n', '<leader>bl', gs.blame_line, opts)
-    end
-})
-
 
 require('dapui').setup()
 
@@ -75,8 +57,6 @@ require('dap-go').setup()
 dap.listeners.after.event_initialized['dapui_config'] = dapui.open
 dap.listeners.before.event_terminated['dapui_config'] = dapui.close
 dap.listeners.before.event_exited['dapui_config'] = dapui.close
-
-vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>', {})
 
 require('Navigator').setup()
 vim.keymap.set({ 'n', 't' }, '<M-h>', '<CMD>NavigatorLeft<CR>')
