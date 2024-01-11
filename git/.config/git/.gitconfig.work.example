@@ -1,0 +1,10 @@
+; can be used if need custom default git config for work
+; can be used if need custom git email or handle multi ssh key
+; cp .gitconfig.work.example ~/works/.gitconfig
+
+[core]
+    sshCommand = ssh -i ~/.ssh/work_ssh_id
+
+[user]
+	email = email@work.com
+	name = example name
