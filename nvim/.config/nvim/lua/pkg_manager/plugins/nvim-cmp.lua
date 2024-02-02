@@ -23,15 +23,14 @@ return {
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
                 ["<C-Space>"] = cmp.mapping.complete {},
                 ["<C-e>"] = cmp.mapping.abort(),
-                ["<CR>"] = cmp.mapping.confirm {
-                    select = true
-                }
+                ["<CR>"] = cmp.mapping.confirm()
             },
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
                 { name = "nvim_lsp_signature_help" }
-            })
+            }),
+            preselect = cmp.PreselectMode.None
         })
     end
 }
