@@ -2,12 +2,16 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
         "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip",
         "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-nvim-lsp-signature-help"
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        "rafamadriz/friendly-snippets",
     },
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "InsertEnter" },
     config = function()
         local cmp = require("cmp")
+        require("luasnip.loaders.from_vscode").lazy_load()
+
         cmp.setup({
             snippet = {
                 expand = function(args)
@@ -23,11 +27,11 @@ return {
                     select = true
                 }
             },
-            sources = {
+            sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
                 { name = "nvim_lsp_signature_help" }
-            }
+            })
         })
     end
 }
