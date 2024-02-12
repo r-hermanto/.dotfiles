@@ -10,12 +10,14 @@ return {
     event = { "InsertEnter" },
     config = function()
         local cmp = require("cmp")
+        local luasnip = require("luasnip")
+
         require("luasnip.loaders.from_vscode").lazy_load()
 
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
+                    luasnip.lsp_expand(args.body)
                 end
             },
             mapping = cmp.mapping.preset.insert {
@@ -23,7 +25,21 @@ return {
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
                 ["<C-Space>"] = cmp.mapping.complete {},
                 ["<C-e>"] = cmp.mapping.abort(),
-                ["<CR>"] = cmp.mapping.confirm()
+                ["<CR>"] = cmp.mapping.confirm(),
+                ['<C-H>'] = cmp.mapping(function(fallback)
+                    if luasnip.locally_jumpable(-1) then
+                        luasnip.jump(-1)
+                    else
+                        fallback()
+                    end
+                end, { 'i', 's' }),
+                ['<C-L>'] = cmp.mapping(function(fallback)
+                    if luasnip.locally_jumpable(1) then
+                        luasnip.jump(1)
+                    else
+                        fallback()
+                    end
+                end, { 'i', 's' }),
             },
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
