@@ -1,1 +1,1 @@
-export PATH="$HOME/go/bin:$PATH"
+export PATH="$XDG_DATA_HOME/go/bin:$PATH"
