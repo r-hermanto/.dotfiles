@@ -55,7 +55,12 @@ return {
         vim.keymap.set("n", "<leader>sf", telescope_builtin.find_files, {})
         vim.keymap.set("n", "<leader>sg", telescope_builtin.live_grep, {})
         vim.keymap.set("n", "<leader>gs", telescope_builtin.grep_string, {})
-        vim.keymap.set("n", "<leader>sb", telescope_builtin.buffers, {})
+        vim.keymap.set("n", "<leader>sb", function()
+            return telescope_builtin.buffers({ sort_mru = true, ignore_current_buffer=true })
+        end, {})
         vim.keymap.set("n", "<leader>sh", telescope_builtin.help_tags, {})
+        vim.keymap.set("n", "<leader>so", function()
+            return telescope_builtin.oldfiles({ cwd_only = true })
+        end, {})
     end
 }
