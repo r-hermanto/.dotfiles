@@ -1,5 +1,9 @@
 return {
     {
+        "nvim-tree/nvim-web-devicons",
+        opts = {},
+    },
+    {
         "numToStr/Comment.nvim",
         config = true,
         event = { "BufReadPre", "BufNewFile" },
