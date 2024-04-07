@@ -5,6 +5,10 @@ opt.relativenumber = true
 opt.scrolloff = 20
 opt.wrap = false
 opt.signcolumn = "yes"
+opt.showmode = false
+opt.splitright = true
+opt.splitbelow = true
+opt.cursorline = true
 
 opt.tabstop = 4
 opt.shiftwidth = 4

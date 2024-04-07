@@ -5,7 +5,7 @@ return {
     },
     {
         "numToStr/Comment.nvim",
-        config = true,
+        opts = {},
         event = { "BufReadPre", "BufNewFile" },
     },
     {
