@@ -12,6 +12,8 @@ end)
 config.color_scheme = 'tokyonight_night'
 config.window_decorations = "RESIZE"
 config.enable_tab_bar = false
+config.audible_bell = 'Disabled'
+config.warn_about_missing_glyphs = false
 
 config.font = wezterm.font 'JetBrains Mono'
 config.font_size = 13
