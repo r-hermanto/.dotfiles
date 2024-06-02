@@ -2,7 +2,7 @@ local opt = vim.opt
 
 opt.number = true
 opt.relativenumber = true
-opt.scrolloff = 20
+opt.scrolloff = 10
 opt.wrap = false
 opt.signcolumn = "yes"
 opt.showmode = false
