@@ -74,6 +74,7 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
+    direnv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -145,3 +146,5 @@ auto_pipenv_shell
 bindkey -s ^f "tmux_sessionizer\n"
 
 test -z "$TMUX" && (tmux a || tmux new-session -s default)
+
+alias lgit="lazygit"
