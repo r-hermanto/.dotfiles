@@ -147,4 +147,6 @@ bindkey -s ^f "tmux_sessionizer\n"
 
 test -z "$TMUX" && (tmux a || tmux new-session -s default)
 
+source <(fzf --zsh)
+
 alias lgit="lazygit"
