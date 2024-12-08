@@ -22,5 +22,4 @@ opt.timeoutlen = 500
 opt.completeopt = "menu,menuone,noselect,preview"
 
 opt.termguicolors = true
-opt.clipboard = "unnamedplus"
 opt.undofile = true

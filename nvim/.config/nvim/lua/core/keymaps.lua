@@ -11,4 +11,6 @@ vim.keymap.set("n", "]b", ":bnext<CR>", { silent = true })
 vim.keymap.set("n", "[c", ":cprev<CR>", { silent = true })
 vim.keymap.set("n", "]c", ":cnext<CR>", { silent = true })
 
+vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y', { noremap = true, silent = true })
+
 vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux_sessionizer<CR>")
