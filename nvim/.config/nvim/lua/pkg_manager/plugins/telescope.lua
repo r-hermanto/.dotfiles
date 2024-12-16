@@ -35,6 +35,7 @@ return {
                     "--column",
                     "--smart-case",
                     "--hidden",
+                    "--fixed-strings"
                 }
             },
             pickers = {
