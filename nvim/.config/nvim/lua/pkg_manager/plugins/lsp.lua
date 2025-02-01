@@ -34,14 +34,18 @@ return {
             vim.keymap.set("n", "<leader>ss", telescope_builtin.lsp_dynamic_workspace_symbols, opts)
 
             vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+            vim.keymap.set("n", "[d", function()
+                vim.diagnostic.jump({ count = -1, float = true })
+            end, opts)
+            vim.keymap.set("n", "]d", function()
+                vim.diagnostic.jump({ count = 1, float = true })
+            end, opts)
         end
 
         local servers = {
             gopls = {},
             pyright = {},
-            ruff_lsp = {},
+            ruff = {},
             lua_ls = {
                 Lua = {
                     diagnostics = { globals = { "vim" } },
@@ -51,6 +55,7 @@ return {
 
         mason.setup()
         mason_lspconfig.setup({
+            automatic_installation = false,
             ensure_installed = vim.tbl_keys(servers)
         })
 
