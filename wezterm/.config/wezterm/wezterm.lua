@@ -9,7 +9,7 @@ wezterm.on('gui-startup', function(cmd)
     window:gui_window():maximize()
 end)
 
-config.color_scheme = 'tokyonight_night'
+config.color_scheme = 'rose-pine-moon'
 config.window_decorations = "RESIZE"
 config.enable_tab_bar = false
 config.audible_bell = 'Disabled'
