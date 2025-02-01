@@ -16,6 +16,9 @@ return {
             javascript = { "prettier" },
             typescript = { "prettier" },
             html = { "prettier" },
-        }
+        },
+        format_after_save = {
+            lsp_format = "fallback",
+        },
     },
 }
