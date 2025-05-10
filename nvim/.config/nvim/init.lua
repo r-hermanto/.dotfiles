@@ -1,4 +1,5 @@
 require("core")
 require("pkg_manager")
 
-vim.cmd.colorscheme("rose-pine")
+vim.g.gruvbox_baby_transparent_mode = 1
+vim.cmd.colorscheme("gruvbox-baby")

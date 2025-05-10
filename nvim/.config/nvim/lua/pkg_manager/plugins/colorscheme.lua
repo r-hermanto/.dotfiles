@@ -1,9 +1,8 @@
 return {
-    {
-        "folke/tokyonight.nvim",
-    },
+    { "folke/tokyonight.nvim" },
     {
         "rose-pine/neovim",
         name = "rose-pine",
     },
+    { "luisiacc/gruvbox-baby" }
 }
