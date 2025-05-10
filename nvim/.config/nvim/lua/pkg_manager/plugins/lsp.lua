@@ -20,22 +20,22 @@ return {
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")
 
-        local servers = {
-            gopls = {},
-            pyright = {},
-            ruff = {},
-            lua_ls = {
-                Lua = {
-                    diagnostics = { globals = { "vim" } },
-                }
-            }
-        }
+        local capabilities = vim.lsp.protocol.make_client_capabilities();
+        capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+        vim.lsp.config("*", {
+            capabilities = capabilities
+        })
 
         mason.setup()
-        mason_lspconfig.setup({
+        mason_lspconfig.setup {
             automatic_enable = true,
-            ensure_installed = vim.tbl_keys(servers)
-        })
+            ensure_installed = {
+                "gopls",
+                "pyright",
+                "ruff",
+                "lua_ls",
+            }
+        }
 
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
