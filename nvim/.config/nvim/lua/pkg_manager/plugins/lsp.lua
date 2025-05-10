@@ -88,8 +88,6 @@ return {
                         vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
                     end,
                 })
-
-                vim.lsp.inlay_hint.enable(true)
             end
         })
     end
