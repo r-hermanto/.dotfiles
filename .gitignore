@@ -1,1 +1,4 @@
 git/.config/lazygit/state.yml
+
+*/.local/bin/*
+!tmux/.local/bin/tmux_sessionizer
