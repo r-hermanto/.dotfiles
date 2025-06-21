@@ -7,6 +7,9 @@ return {
                 current_line_blame_opts = {
                     delay = 0
                 },
+                preview_config = {
+                    border = "rounded",
+                },
                 on_attach = function(bufnr)
                     local gs = package.loaded.gitsigns
                     local opts = { buffer = bufnr }
