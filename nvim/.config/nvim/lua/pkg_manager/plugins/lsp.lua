@@ -73,10 +73,17 @@ return {
 
 
                 local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
-                vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+                vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
                     buffer = args.buf,
                     group = highlight_augroup,
-                    callback = vim.lsp.buf.document_highlight,
+                    callback = function()
+                        local client = vim.lsp.get_clients()[1]
+                        if client then
+                            if client:supports_method('textDocument/documentHighlight') then
+                                vim.lsp.buf.document_highlight()
+                            end
+                        end
+                    end
                 })
 
                 vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
