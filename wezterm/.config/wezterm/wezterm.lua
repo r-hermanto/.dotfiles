@@ -10,7 +10,7 @@ wezterm.on('gui-startup', function(cmd)
 end)
 
 config.color_scheme = 'rose-pine'
-config.window_decorations = "RESIZE"
+config.window_decorations = 'NONE'
 config.enable_tab_bar = false
 config.audible_bell = 'Disabled'
 config.warn_about_missing_glyphs = false
