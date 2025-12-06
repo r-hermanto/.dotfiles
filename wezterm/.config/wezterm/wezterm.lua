@@ -4,7 +4,6 @@ local mux = wezterm.mux
 local config = {}
 
 wezterm.on('gui-startup', function(cmd)
-    print("run here")
     local tab, pane, window = mux.spawn_window(cmd or {})
     window:gui_window():maximize()
 end)
