@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$((find ~/works ~/projects -mindepth 1 -maxdepth 1 -type d && echo ~/.dotfiles && echo default) | fzf)
+    selected=$( (find ~/works ~/projects -mindepth 1 -maxdepth 1 -type d; printf "%s\n" "$HOME/.dotfiles" "default") | fzf)
 fi
 
 if [[ -z $selected ]]; then
