@@ -14,6 +14,7 @@
 - stow tmux
 - stow wezterm
 - stow zsh
+- stow ghostty
 
 ## remove config
 - stow -D git
